@@ -70,9 +70,17 @@ function game(){
         if(string.indexOf('You win')!==-1)
             playerScore++;
 
-        console.log('playerScore =' + playerScore);
-        console.log('computerScore = ' + computerScore);
+        console.log('\nRound ' + i + results:)
+        console.log('       playerScore = ' + playerScore);
+        console.log('       computerScore = ' + computerScore + '\n');
             
     }
+
+    if(playerScore==computerScore)
+        console.log('Draw!');
+    else if (playerScore > computerScore)
+        console.log("You're the winner!");
+    else
+        console.log("You're the loser!");
 
 }
