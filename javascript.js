@@ -19,6 +19,8 @@ function playRound (playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
+    console.log('computerSelection = ' + computerSelection);
+
     //we can refer to lexicographical order to compare selection strings
 
     if(computerSelection==playerSelection)
@@ -32,7 +34,7 @@ function playRound (playerSelection, computerSelection){
     }
     //rock vs paper/scissors
     else if (playerSelection=='paper'){
-        if (computerSelection='rock')
+        if (computerSelection=='rock')
             return 'You Win! Paper beats Rock';
         else
             return 'You Lose! Scissors beats Paper';
