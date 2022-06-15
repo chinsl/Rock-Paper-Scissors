@@ -16,8 +16,12 @@ function computerPlay() {
 
 //returns a winner after comparing rock-paper-scissors selection values
 function playRound (playerSelection, computerSelection){
+
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
+
+    if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!== 'scissors')
+        playerSelection=prompt('Invalid entry! Rock, Paper, or Scissors?');
 
     //testing
     //console.log('computerSelection = ' + computerSelection);
