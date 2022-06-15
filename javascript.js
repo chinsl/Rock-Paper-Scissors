@@ -19,42 +19,60 @@ function playRound (playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
-    console.log('computerSelection = ' + computerSelection);
+    //testing
+    //console.log('computerSelection = ' + computerSelection);
 
     //we can refer to lexicographical order to compare selection strings
 
     if(computerSelection==playerSelection)
         return 'Draw!';
     //draw
-    else if (playerSelection=='rock'){
+    else if (playerSelection=='rock')
+    {
         if (computerSelection=='paper')
             return 'You Lose! Paper beats Rock';
         else
             return 'You win! Rock beats Scissors';
     }
     //rock vs paper/scissors
-    else if (playerSelection=='paper'){
+    else if (playerSelection=='paper')
+    {
         if (computerSelection=='rock')
             return 'You Win! Paper beats Rock';
         else
             return 'You Lose! Scissors beats Paper';
     }
     //paper vs rock/scissors
-    else if (playerSelection=='scissors'){
+    else if (playerSelection=='scissors')
+    {
         if (computerSelection=='rock')
-            return 'You Lose! Rock beats Scissors';
+            return 'You Lose! Rock beats Scissors'; 
         else
             return 'You win! Scissors beats Paper';
     }
     //scissors vs rock/paper
-
-
-   
-    
 }
 
 
 //conducts five rounds, records the score, and finally, reports a winner or loser
 function game(){
+
+    let playerScore, computerScore;
+
+    for(let i=0; i<5; i++)
+    {
+        let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
+        
+        console.log(string);
+
+        if(string.indexOf('You Lose')!==-1)
+            computerScore++;
+        if(string.indexOf('You win')!==-1)
+            playerScore++;
+
+        console.log('playerScore =' + playerScore);
+        console.log('computerScore = ' + computerScore);
+            
+    }
 
 }
