@@ -57,7 +57,7 @@ function playRound (playerSelection, computerSelection){
 //conducts five rounds, records the score, and finally, reports a winner or loser
 function game(){
 
-    let playerScore, computerScore;
+    let playerScore=0, computerScore=0;
 
     for(let i=0; i<5; i++)
     {
