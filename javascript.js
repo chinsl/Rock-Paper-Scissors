@@ -20,11 +20,12 @@ function playRound (playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
-    if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!== 'scissors')
+    while(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!== 'scissors')
         playerSelection=prompt('Invalid entry! Rock, Paper, or Scissors?');
 
     //testing
     //console.log('computerSelection = ' + computerSelection);
+    console.log('playerSelection = ' + playerSelection);
 
     //we can refer to lexicographical order to compare selection strings
 
