@@ -22,24 +22,18 @@ function playRound (playerSelection, computerSelection){
     
     let invalid;
 
-    if(playerSelection!=='rock')
+    if(playerSelection!=='rock' && playerSelection!=='paper' && playerSelection!=='scissors')
     {
-        if(playerSelection!=='paper')
+        invalid= true;
+
+        do
         {
-            if(playerSelection!=='scissors')
-            {
-                invalid= true;
+            playerSelection=prompt('INVALID ENTRY. Rock, Paper, or Scissors??');
 
-                do
-                {
-                    playerSelection=prompt('INVALID ENTRY. Rock, Paper, or Scissors??');
+            if(playerSelection=='rock' || playerSelection=='paper' || playerSelection=='scissors')
+                invalid= !invalid;
 
-                    if(playerSelection=='rock' || playerSelection=='paper' || playerSelection=='scissors')
-                        invalid= !invalid;
-
-                }while(invalid);
-            }
-        }
+        }while(invalid);
     }
     //testing
     //console.log('computerSelection = ' + computerSelection);
