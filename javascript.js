@@ -70,7 +70,7 @@ function game(){
         if(string.indexOf('You win')!==-1)
             playerScore++;
 
-        console.log('\nRound ' + i + results:)
+        console.log('\nRound ' + i + results);
         console.log('       playerScore = ' + playerScore);
         console.log('       computerScore = ' + computerScore + '\n');
             
