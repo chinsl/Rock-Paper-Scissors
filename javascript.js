@@ -17,15 +17,18 @@ function computerPlay() {
 //returns a winner after comparing rock-paper-scissors selection values
 function playRound (playerSelection, computerSelection){
 
+    //regulate entries
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     
+    //while loop condition for valid entry
     let invalid;
 
     if(playerSelection!=='rock' && playerSelection!=='paper' && playerSelection!=='scissors')
     {
-        invalid= true;
+        invalid=true;
 
+        //repeat prompt until valid entry is mad
         do
         {
             playerSelection=prompt('INVALID ENTRY. Rock, Paper, or Scissors??');
@@ -80,21 +83,26 @@ function game(){
 
     for(let i=1; i<=5; i++)
     {
+        //store value of playRound(); pass prompt for user's choice
         let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
         
         console.log(string);
 
+
+        //store scores based upon return value of playRound() 
         if(string.indexOf('You Lose')!==-1)
             ++computerScore;
         if(string.indexOf('You Win')!==-1)
             ++playerScore;
 
+        //log output
         console.log('\nRound ' + i + ' results:\n\n');
         console.log('player = ' + playerScore);
         console.log('computer = ' + computerScore + '\n\n');
             
     }
 
+    //log final result
     if(playerScore==computerScore)
         console.log("It's a DRAW!");
     else if (playerScore > computerScore)
