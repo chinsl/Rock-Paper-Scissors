@@ -1,5 +1,5 @@
 # Rock-Paper-Scissors
-This is an implementation of Rock-Paper-Scissors game via JavaScript. 
+This is an implementation of the game Rock-Paper-Scissors via JavaScript. 
 
 Rock-paper-scissors is a two-player game in which opponents simultaneously declare rock, paper, or scissors. Being a zero-sum game, the result is a draw or a win and a loss. Each item of rock, paper, and scissors has an advantageous relation to the other: rock beats scissors, scissors beats paper, and paper beats rock. 
 

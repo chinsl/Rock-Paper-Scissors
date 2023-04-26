@@ -17,7 +17,7 @@ function computerPlay() {
 //returns a winner after comparing rock-paper-scissors selection values
 function playRound (playerSelection, computerSelection){
 
-    //regulate entries
+    //regulate entries (parameters)
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     
@@ -81,26 +81,28 @@ function game(){
 
     let playerScore=0, computerScore=0;
 
-    for(let i=1; i<=5; i++)
-    {
-        //store value of playRound(); pass prompt for user's choice
-        let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
+    // for(let i=1; i<=5; i++)
+    // {
+    //     //store value of playRound(); pass prompt for user's choice
+    //     let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
         
-        console.log(string);
+    //     console.log(string);
 
 
-        //store scores based upon return value of playRound() 
-        if(string.indexOf('You Lose')!==-1)
-            ++computerScore;
-        if(string.indexOf('You Win')!==-1)
-            ++playerScore;
+    //     //store scores based upon return value of playRound() 
+    //     if(string.indexOf('You Lose')!==-1)
+    //         ++computerScore;
+    //     if(string.indexOf('You Win')!==-1)
+    //         ++playerScore;
 
-        //log output
-        console.log('\nRound ' + i + ' results:\n\n');
-        console.log('player = ' + playerScore);
-        console.log('computer = ' + computerScore + '\n\n');
+    //     //log output
+    //     console.log('\nRound ' + i + ' results:\n\n');
+    //     console.log('player = ' + playerScore);
+    //     console.log('computer = ' + computerScore + '\n\n');
             
-    }
+    // }
+
+
 
     //log final result
     if(playerScore==computerScore)
