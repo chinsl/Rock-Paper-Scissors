@@ -39,77 +39,91 @@ function playRound (playerSelection, computerSelection){
         }while(invalid);
     }
     //testing
-    //console.log('computerSelection = ' + computerSelection);
-    //console.log('playerSelection = ' + playerSelection);
+    console.log('computerSelection = ' + computerSelection);
+    console.log('playerSelection = ' + playerSelection);
 
     console.log('\n       1... 2... 3... ROCK, PAPER, SCISSORS!');
 
     //we can refer to lexicographical order to compare selection strings
 
-    if(computerSelection==playerSelection)
+
+    if(computerSelection===playerSelection)
         return '       Draw!';
     //draw
-    else if (playerSelection=='rock')
+    else if (playerSelection==='rock')
     {
-        if (computerSelection=='paper')
+        if (computerSelection==='paper')
             return '       You Lose! Paper beats Rock';
         else
             return '       You Win! Rock beats Scissors';
     }
     //rock vs paper/scissors
-    else if (playerSelection=='paper')
+    else if (playerSelection==='paper')
     {
-        if (computerSelection=='rock')
+        if (computerSelection==='rock')
             return '       You Win! Paper beats Rock';
         else
             return '       You Lose! Scissors beats Paper';
     }
     //paper vs rock/scissors
-    else if (playerSelection=='scissors')
+    else if (playerSelection==='scissors')
     {
-        if (computerSelection=='rock')
+        if (computerSelection==='rock')
             return '       You Lose! Rock beats Scissors'; 
         else
             return '       You Win! Scissors beats Paper';
     }
     //scissors vs rock/paper
+    
+    // console.log(test);
 }
 
 
 //conducts five rounds, records the score, and finally, reports a winner or loser
-function game(){
+// function game(){
 
-    let playerScore=0, computerScore=0;
+//     let playerScore=0, computerScore=0;
 
-    // for(let i=1; i<=5; i++)
-    // {
-    //     //store value of playRound(); pass prompt for user's choice
-    //     let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
+//     for(let i=1; i<=5; i++)
+//     {
+//         //store value of playRound(); pass prompt for user's choice
+//         let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
         
-    //     console.log(string);
+//         console.log(string);
 
 
-    //     //store scores based upon return value of playRound() 
-    //     if(string.indexOf('You Lose')!==-1)
-    //         ++computerScore;
-    //     if(string.indexOf('You Win')!==-1)
-    //         ++playerScore;
+//         //store scores based upon return value of playRound() 
+//         if(string.indexOf('You Lose')!==-1)
+//             ++computerScore;
+//         if(string.indexOf('You Win')!==-1)
+//             ++playerScore;
 
-    //     //log output
-    //     console.log('\nRound ' + i + ' results:\n\n');
-    //     console.log('player = ' + playerScore);
-    //     console.log('computer = ' + computerScore + '\n\n');
+//         //log output
+//         console.log('\nRound ' + i + ' results:\n\n');
+//         console.log('player = ' + playerScore);
+//         console.log('computer = ' + computerScore + '\n\n');
             
-    // }
+//     }
+
+//     //log final result
+//     if(playerScore==computerScore)
+//         console.log("It's a DRAW!");
+//     else if (playerScore > computerScore)
+//         console.log("You're the WINNER!");
+//     else
+//         console.log("You're the LOSER!");
+// }
+
+// the JavaScript file
 
 
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
 
-    //log final result
-    if(playerScore==computerScore)
-        console.log("It's a DRAW!");
-    else if (playerScore > computerScore)
-        console.log("You're the WINNER!");
-    else
-        console.log("You're the LOSER!");
 
-}
+rock.addEventListener('click', function () { playRound('rock', computerPlay())});
+paper.addEventListener('click', function () { playRound('paper', computerPlay())});
+scissors.addEventListener('click', function () { playRound('scissors', computerPlay())});
+
+playRound('rock', computerPlay());
