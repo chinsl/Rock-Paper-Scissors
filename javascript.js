@@ -39,10 +39,10 @@ function playRound (playerSelection, computerSelection){
         }while(invalid);
     }
     //testing
-    console.log('computerSelection = ' + computerSelection);
-    console.log('playerSelection = ' + playerSelection);
+    // console.log('computerSelection = ' + computerSelection);
+    // console.log('playerSelection = ' + playerSelection);
 
-    console.log('\n       1... 2... 3... ROCK, PAPER, SCISSORS!');
+    //console.log('\n       1... 2... 3... ROCK, PAPER, SCISSORS!');
 
     //we can refer to lexicographical order to compare selection strings
 
@@ -75,55 +75,88 @@ function playRound (playerSelection, computerSelection){
     }
     //scissors vs rock/paper
     
-    // console.log(test);
+}
+
+let playerScore=0, computerScore=0;
+
+// conducts five rounds, records the score, and finally, reports a winner or loser
+function game(choice, counter){
+
+
+    // for(let i=1; i<=5; i++)
+    // {
+        //store value of playRound(); pass prompt for user's choice
+        // let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
+
+        let string = playRound(choice, computerPlay());
+
+        console.log(string);
+
+
+        //store scores based upon return value of playRound() 
+        if(string.indexOf('You Lose')!==-1)
+            ++computerScore;
+        if(string.indexOf('You Win')!==-1)
+            ++playerScore;
+
+        //log output
+        // console.log('\nRound ' + i + ' results:\n\n');
+        // console.log('player = ' + playerScore);
+        // console.log('computer = ' + computerScore + '\n\n');
+            
+        const score = document.createElement('div');
+        score.classList.toggle('score');
+        score.textContent = '\n\nPlayer = ' + playerScore + ' | Computer = ' + computerScore + '\n\n';
+        body.appendChild(score);
+    // }
+
+    if(counter==5)
+    {
+        const final = document.createElement('div');
+        //log final result
+        if(playerScore==computerScore)
+            final.textContent += "It's a DRAW!";
+        else if (playerScore > computerScore)
+            final.textContent += "You're the WINNER!";
+        else
+            final.textContent += "You're the LOSER!";
+
+        final.style.color = 'red';
+        body.appendChild(final);
+        counter=0;
+    }
+    
 }
 
 
-//conducts five rounds, records the score, and finally, reports a winner or loser
-// function game(){
+const body = document.querySelector('body');
+const btn = document.querySelectorAll('button');
 
-//     let playerScore=0, computerScore=0;
+var counter = 0;
 
-//     for(let i=1; i<=5; i++)
-//     {
-//         //store value of playRound(); pass prompt for user's choice
-//         let string = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
+btn.forEach( (button) => {
+    
+    button.addEventListener('click', () => {
+
+        counter++;
         
-//         console.log(string);
 
+        const selection = document.createElement('div');
+        selection.textContent = 'You chose ' + button.textContent + '.';
+        selection.style.fontWeight = 'bold';
+        body.appendChild(selection);
 
-//         //store scores based upon return value of playRound() 
-//         if(string.indexOf('You Lose')!==-1)
-//             ++computerScore;
-//         if(string.indexOf('You Win')!==-1)
-//             ++playerScore;
+        const result = document.createElement('div');
+        result.textContent = 'Round ' + counter + ':  ' + playRound(button.textContent, computerPlay());
+        body.appendChild(result);
 
-//         //log output
-//         console.log('\nRound ' + i + ' results:\n\n');
-//         console.log('player = ' + playerScore);
-//         console.log('computer = ' + computerScore + '\n\n');
-            
-//     }
+        const score = document.createElement('div');
+        score.classList.toggle('score');
+        score.textContent = game(button.textContent, counter);
+        body.appendChild(score);
 
-//     //log final result
-//     if(playerScore==computerScore)
-//         console.log("It's a DRAW!");
-//     else if (playerScore > computerScore)
-//         console.log("You're the WINNER!");
-//     else
-//         console.log("You're the LOSER!");
-// }
+        if(counter>4)
+            counter=0;
+    })
+})
 
-// the JavaScript file
-
-
-const rock = document.querySelector('.rock');
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
-
-
-rock.addEventListener('click', function () { playRound('rock', computerPlay())});
-paper.addEventListener('click', function () { playRound('paper', computerPlay())});
-scissors.addEventListener('click', function () { playRound('scissors', computerPlay())});
-
-playRound('rock', computerPlay());
